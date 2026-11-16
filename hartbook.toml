@@ -1,0 +1,14 @@
+[project]
+name = "SVIX Crash Monitor History"
+description = "Daily history of the 30-day SVIX and option-implied crash probabilities for the S&P 500, recorded by the HW 3 monitor"
+
+[dataframes.svix_monitor_history]
+name = "SVIX Monitor History"
+description = "One row per session: the 30-day SVIX, the VIX close, and the risk-neutral, log-investor, and power-utility probabilities of a 10% and 20% drop in the S&P 500"
+path = "svix_monitor_history.csv"
+date_col = "date"
+docs = """Each row is computed from one session's settlement prices of the two
+end-of-month E-mini S&P 500 option expirations that bracket 30 days. SVIX^2
+(Martin 2017) is interpolated in total variance to exactly 30 days; the crash
+probabilities use the expiration closest to one month. Appended daily by the
+deploy workflow of jonaslu26/svix-crash-monitor."""
